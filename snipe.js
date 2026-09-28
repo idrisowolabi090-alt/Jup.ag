@@ -633,7 +633,7 @@ async function sendTokenAnalysis(ctx, address) {
       feeNote = '\n💎 Trade with low fees';
     }
     
-    const message    = `*🎯 MAESTRO TOKEN SCANNER*
+    const message    = `*🎯 jup TOKEN SCANNER*
 
 🪙 *${pair.baseToken?.name||'Unknown'}* (${pair.baseToken?.symbol||'???'})
 \`${address}\`
@@ -1153,7 +1153,7 @@ async function showMainMenu(ctx, edit = false) {
     } catch { await ctx.reply(message, { parse_mode:'Markdown', ...keyboard }); }
   } catch (error) {
     console.error('Main menu error:', error);
-    await ctx.reply('🚀 Maestro Bot\n\n⚠️ Error loading menu', { ...Markup.inlineKeyboard([[Markup.button.callback('🔄 Refresh', 'refresh_main')]]) });
+    await ctx.reply('😺 Jupiter Bot\n\n⚠️ Error loading menu', { ...Markup.inlineKeyboard([[Markup.button.callback('🔄 Refresh', 'refresh_main')]]) });
   }
 }
 
@@ -1597,7 +1597,8 @@ bot.action('transfer_token', async (ctx) => {
   session.pendingTransfer = { type:'TOKEN' };
   await saveSession(ctx.from.id, session);
   await ctx.editMessageText('📤 *Send Token*\n\nStep 1/3: Enter token mint address:', { parse_mode:'Markdown', ...Markup.inlineKeyboard([[Markup.button.callback('❌ Cancel','menu_wallet')]]) });
-});
+const message = `👋 *Jup.ag Trading Bot*\n\n*Your AI Trading Assistant on Solana* ⚡\n━━━━━━━━━━━━━━━━━━━━━━━\n🚨 Real-time pump detection...
+```
 
 // --- Trading callbacks ---
 bot.action(/^buy_(\d+\.?\d*)_(.+)$/, async (ctx) => {
@@ -1783,7 +1784,7 @@ bot.action('referral_share', async (ctx) => {
   try { botUsername = (await bot.telegram.getMe()).username; } catch { /* ignore */ }
   const link = `https://t.me/${botUsername}?start=ref_${code}`;
   await ctx.answerCbQuery();
-  await ctx.reply(`🚀 Join me on Maestro Trading Bot — the ultimate Solana trading bot!\n${link}`, { parse_mode:'Markdown' });
+  await ctx.reply(`🚀 Join me on jup Trading Bot — the ultimate Solana trading bot!\n${link}`, { parse_mode:'Markdown' });
 });
 bot.action('referral_refresh', async (ctx) => { await ctx.answerCbQuery('Refreshed!'); await showReferralsMenu(ctx, true); });
 
@@ -2210,7 +2211,7 @@ bot.catch((err, ctx) => {
 });
 
 async function startBot() {
-  console.log('Starting Maestro Trading Bot...');
+  console.log('Starting Jupiter Trading Bot...');
   console.log(`Commission: ${COMMISSION_PERCENTAGE}% → ${COMMISSION_WALLET || 'NOT SET'}`);
   console.log(`RPC: ${SOLANA_RPC}`);
   console.log(`Jupiter API: ${JUPITER_API}`);
